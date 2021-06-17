@@ -1,24 +1,33 @@
 import React from 'react';
-import {View, Text, Alert, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import {
+  View,
+  Text,
+  Alert,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 import {
   DrawerContentScrollView,
   DrawerItemList,
   DrawerItem,
 } from '@react-navigation/drawer';
 
-
-const CustomSidebarMenu = (props) => {
+const CustomSidebarMenu = props => {
   return (
     <View style={stylesSidebar.sideMenuContainer}>
       <View style={stylesSidebar.profileHeader}>
         <View style={stylesSidebar.profileHeaderPicCircle}>
-        <Image source={require('../Images/Margarett.jpg')} style={{width:70, height:70, borderRadius: 90}}/>
+          <Image
+            source={require('../Images/Margarett.jpg')}
+            style={{width: 70, height: 70, borderRadius: 90}}
+          />
         </View>
-        <View style={{flexDirection:'column', marginTop:10, marginLeft:5}}>
-        <Text style={stylesSidebar.profileHeaderText}>Margarett Halim</Text>
-        <TouchableOpacity style={stylesSidebar.profileHeaderEdit}>
-          <Text style={{color:'white'}}>Edit Profile</Text>
-        </TouchableOpacity>
+        <View style={{flexDirection: 'column', marginTop: 10, marginLeft: 5}}>
+          <Text style={stylesSidebar.profileHeaderText}>Margarett Halim</Text>
+          <TouchableOpacity style={stylesSidebar.profileHeaderEdit}>
+            <Text style={{color: 'white'}}>Edit Profile</Text>
+          </TouchableOpacity>
         </View>
       </View>
       <View style={stylesSidebar.profileHeaderLine} />
@@ -41,9 +50,7 @@ const CustomSidebarMenu = (props) => {
                 },
                 {
                   text: 'Confirm',
-                  onPress: () => {
-                    return null;
-                  },
+                  onPress: () => props.navigation.goBack(),
                 },
               ],
               {cancelable: false},
@@ -70,7 +77,7 @@ const stylesSidebar = StyleSheet.create({
     backgroundColor: '#rgb(25,184,25)',
     padding: 15,
     textAlign: 'center',
-    marginLeft : 5
+    marginLeft: 5,
   },
   profileHeaderPicCircle: {
     width: 60,
@@ -86,12 +93,12 @@ const stylesSidebar = StyleSheet.create({
     color: 'white',
     paddingHorizontal: 10,
     fontWeight: 'bold',
-    alignSelf : 'center',
-    fontSize : 16
+    alignSelf: 'center',
+    fontSize: 16,
   },
-  profileHeaderEdit : {
+  profileHeaderEdit: {
     color: 'white',
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
   profileHeaderLine: {
     height: 1,
